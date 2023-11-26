@@ -2,8 +2,6 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
-    'eslint:recommended',
-    'plugin:react/recommended',
   ],
   overrides: [
     {
@@ -24,12 +22,9 @@ module.exports = {
   rules: {
     'dot-location': 'off',
     'new-parens': 'off',
-    'no-extra-semi': 'off',
-    'no-mixed-spaces-and-tabs': 'off',
     'no-whitespace-before-property': 'off',
     'rest-spread-spacing': 'off',
 
     'no-mixed-operators': 'off',
-    'no-unexpected-multiline': 'off',
   },
 };
