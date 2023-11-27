@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import ButtonSvg from '../shared/ButtonSvg';
 import { ReactComponent as CloseIcon } from '../../assets/close.svg';
+import { useAppSelector } from '../../redux/hooks';
+import { selectModalItem } from '../../redux/features/modal/selectors';
 
 interface ModalOptions {
   onClose: () => void;
@@ -8,8 +9,7 @@ interface ModalOptions {
 }
 
 function Delete({ onClose, onSubmit }: ModalOptions) {
-  const [title, setTitle] = useState('Neque porro quisquam est');
-  const [description, setDescription] = useState('');
+  const item = useAppSelector(selectModalItem);
 
   return (
     <div className='flex flex-col rounded-lg gap-4 p-4 bg-gray-100 min-h-[var(--modal-height)]'>
@@ -21,13 +21,13 @@ function Delete({ onClose, onSubmit }: ModalOptions) {
           <span className="block font-medium text-lg text-gray-600">
             Title
           </span>
-          <span>{title}</span>
+          <span>{item?.title}</span>
         </div>
         <div className="flex flex-col gap-1">
           <span className="block font-medium text-lg text-gray-600">
             Description
           </span>
-          <span>{description}</span>
+          <span>{item?.description}</span>
         </div>
         <div className="flex justify-between gap-4 md:justify-end mt-auto">
         <button

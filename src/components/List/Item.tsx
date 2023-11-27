@@ -14,8 +14,8 @@ function Item({ id, title, description }: ItemInterface) {
         <div>{description}</div>
       </div>
       <div className="flex flex-col gap-3">
-        <ButtonSvg Svg={Edit} id={id} onClick={showModal}/>
-        <ButtonSvg Svg={Delete} id={id} onClick={showModal}/>
+        <ButtonSvg Svg={Edit} id={id} onClick={() => showModal('edit', { id, title, description })}/>
+        <ButtonSvg Svg={Delete} id={id} onClick={() => showModal('delete', { id, title, description })}/>
       </div>
     </div>
   );

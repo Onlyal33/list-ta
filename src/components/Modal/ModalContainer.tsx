@@ -1,18 +1,20 @@
 import useModal from '../../hooks/useModal';
+import { selectIsModalOpen, selectModal } from '../../redux/features/modal/selectors';
+import { useAppSelector } from '../../redux/hooks';
 import Add from './Add';
 import Delete from './Delete';
 import Edit from './Edit';
 import ModalPortal from './ModalPortal';
 
 function ModalContainer() {
-  const { hideModal, isModalOpen } = useModal();
+  const { hideModal } = useModal();
+  const isModalOpen = useAppSelector(selectIsModalOpen);
+  const { type } = useAppSelector(selectModal);
 
-  if (!isModalOpen) {
-    console.log('container', isModalOpen)
+  if (!isModalOpen || !type) {
     return null;
   }
 
-  const type: keyof typeof modals = 'delete';
   const ModalComponent = getModal(type);
 
   return (
