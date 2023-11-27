@@ -3,9 +3,9 @@ interface ButtonInterface {
   Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 
-function Button({ id, Svg }: ButtonInterface) {
+function ButtonSvg({ id, Svg }: ButtonInterface) {
   return (
-    <button className="min-w-8 group p-1 focus:outline-indigo-700 max-h-[32px]">
+    <button className="min-w-8 group p-1 focus:outline-indigo-700 max-h-8">
       <Svg
         width={24}
         height={24}
@@ -15,4 +15,4 @@ function Button({ id, Svg }: ButtonInterface) {
   );
 }
 
-export default Button;
+export default ButtonSvg;

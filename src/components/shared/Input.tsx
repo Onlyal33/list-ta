@@ -7,7 +7,7 @@ interface InputInterface {
 
 function Input({ label, placeholder, id, Icon }: InputInterface) {
   return (
-    <div className="flex w-full items-center gap-2 rounded-md border border-gray-500 p-2 focus-within:border-indigo-700">
+    <div className="flex w-full items-center gap-2 rounded-md outline outline-1 outline-gray-500 p-2 focus-within:outline-indigo-700 focus-within:outline-2">
       <label htmlFor={id} className="sr-only">
         {label}
       </label>

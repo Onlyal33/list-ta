@@ -7,7 +7,7 @@ interface SelectInterface {
 
 function Select({ label, id, options, Icon }: SelectInterface) {
   return (
-    <div className="relative flex w-full items-center gap-2 rounded-md border border-gray-500 p-2 pr-8 focus-within:border-indigo-700">
+    <div className="relative flex w-full items-center gap-2 rounded-md outline outline-1 outline-gray-500 p-2 pr-8 focus-within:outline-indigo-700 focus-within:outline-2">
       <label htmlFor={id} className="sr-only">
         {label}
       </label>
@@ -15,7 +15,7 @@ function Select({ label, id, options, Icon }: SelectInterface) {
         id={id}
         defaultValue={options[0]}
         aria-label={label}
-        className="peer appearance-none w-full h-6 bg-transparent text-sm placeholder:text-gray-500 focus:outline-none"
+        className="peer appearance-none w-full h-6 bg-transparent text-sm text-gray-500 focus:outline-none focus:text-indigo-700"
       >
         {options.map((option) => (
           <option key={option} value={option}>
