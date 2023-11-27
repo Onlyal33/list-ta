@@ -14,7 +14,7 @@ function List() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-3 bg-gray-100 p-3">
+    <div className="flex flex-col gap-3">
       {items.map((item) => (
         <Item
           key={item.id}
