@@ -1,7 +1,7 @@
-import { ReactComponent as PlusIcon } from '../assets/plus.svg';
-import { ReactComponent as SortIcon } from '../assets/sort.svg';
-import { ReactComponent as SearchIcon } from '../assets/search.svg';
-import ButtonSvg from './ButtonSvg';
+import { ReactComponent as PlusIcon } from '../../assets/plus.svg';
+import { ReactComponent as SearchIcon } from '../../assets/sort.svg';
+import { ReactComponent as SortIcon } from '../../assets/sort.svg';
+import ButtonSvg from '../shared/ButtonSvg';
 
 function ListMenu() {
   return (

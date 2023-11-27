@@ -1,7 +1,7 @@
-import ButtonSvg from './ButtonSvg';
-import { ReactComponent as Delete } from '../assets/delete.svg';
-import { ReactComponent as Edit } from '../assets/edit.svg';
-import { ItemInterface } from '../types';
+import ButtonSvg from '../shared/ButtonSvg';
+import { ReactComponent as Delete } from '../../assets/delete.svg';
+import { ReactComponent as Edit } from '../../assets/edit.svg';
+import { ItemInterface } from '../../types';
 
 function Item({ id, title, description }: ItemInterface) {
   return (

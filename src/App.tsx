@@ -1,5 +1,5 @@
-import List from './components/List';
-import ListMenu from './components/ListMenu';
+import List from './components/List/List';
+import ListMenu from './components/ListMenu/ListMenu';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Item from './Item';
-import routes from '../common/routes';
-import { ItemInterface } from '../types';
+import routes from '../../common/routes';
+import { ItemInterface } from '../../types';
 
 function List() {
   const [items, setItems] = useState<ItemInterface[]>([]);
