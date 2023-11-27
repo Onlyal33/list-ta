@@ -1,5 +1,5 @@
 import { ReactComponent as PlusIcon } from '../../assets/plus.svg';
-import ButtonSvg from '../shared/ButtonSvg';
+import ButtonResponsive from '../shared/ButtonResponsive';
 import FilterInput from './FilterInput';
 import SortSelect from './SortSelect';
 
@@ -8,7 +8,7 @@ function ListMenu() {
     <div className="sticky top-0">
       <div className="md:scroll-offset md:min-w-[260px]">
         <div className="flex items-center gap-3 md:rounded-t-md border bg-white p-3 md:h-full md:flex-col md:items-start">
-          <ButtonSvg Svg={PlusIcon}></ButtonSvg>
+          <ButtonResponsive Svg={PlusIcon} label='Add Item'></ButtonResponsive>
           <FilterInput></FilterInput>
           <SortSelect></SortSelect>
         </div>
