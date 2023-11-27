@@ -1,11 +1,12 @@
 interface ButtonInterface {
   id?: number;
   Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  onClick: () => void;
 }
 
-function ButtonSvg({ id, Svg }: ButtonInterface) {
+function ButtonSvg({ id, Svg, onClick }: ButtonInterface) {
   return (
-    <button className="min-w-8 group p-1 focus:outline-indigo-700 max-h-8">
+    <button onClick={onClick} className="min-w-6 group focus:outline-indigo-700 max-h-6">
       <Svg
         width={24}
         height={24}

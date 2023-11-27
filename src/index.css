@@ -10,4 +10,13 @@
     height: calc(100vh - var(--header-heigth) - var(--padding-default) * 2);
     top: calc(var(--header-heigth) + var(--padding-default))
   }
+
+  .modal {
+    --modal-height: min(320px, 100vh);
+    --modal-width: min(500px, 100vw);
+    height: var(--modal-height);
+    width: var(--modal-width);
+    top: calc(50vh - var(--modal-height) / 2);
+    left: calc(50% - var(--modal-width) / 2);
+  }
 }
