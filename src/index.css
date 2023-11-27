@@ -4,6 +4,10 @@
 
 @layer components {
   .scroll-offset {
-    height: calc(100vh - 56px - 12px * 2);
+    --padding-default: 0.75rem;
+    --header-heigth: calc(2rem + 2 * var(--padding-default));
+    position: sticky;
+    height: calc(100vh - var(--header-heigth) - var(--padding-default) * 2);
+    top: calc(var(--header-heigth) + var(--padding-default))
   }
 }
