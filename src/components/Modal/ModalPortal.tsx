@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { ReactNode, useLayoutEffect } from 'react';
+import { ReactNode, useEffect, useLayoutEffect } from 'react';
 import useModal from '../../hooks/useModal';
 
 function ModalPortal({ children }: { children: ReactNode}) {
@@ -14,6 +14,14 @@ function ModalPortal({ children }: { children: ReactNode}) {
       document.body.style.overflow = 'auto';
     };
   });
+
+  useEffect(() => {
+    const closeOnEscapeKey = (e: KeyboardEvent) => e.key === "Escape" ? hideModal() : null;
+    document.body.addEventListener("keydown", closeOnEscapeKey);
+    return () => {
+      document.body.removeEventListener("keydown", closeOnEscapeKey);
+    };
+  }, [hideModal]);
 
   return (
     <>

@@ -7,9 +7,6 @@ const store = configureStore({
     items: itemsReducer,
     modal: modalReducer,
   },
-  preloadedState: {
-    items: [],
-  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

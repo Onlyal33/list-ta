@@ -13,14 +13,14 @@ const itemsSlice = createSlice({
         items: ItemInterface[];
       }>,
     ) {
-      state = action.payload.items;
+      return action.payload.items;
     },
     addItem(state, action: PayloadAction<ItemInterface>) {
       state.push(action.payload);
     },
-    deleteItem(state, action: PayloadAction<ItemInterface>) {
+    deleteItem(state, action: PayloadAction<{ id: ItemInterface['id'] }>) {
       const idToDelete = action.payload.id;
-      state = state.filter(({ id }) => id !== idToDelete);
+      return state.filter(({ id }) => id !== idToDelete);
     },
     editItem(state, action: PayloadAction<ItemInterface>) {
       const item = state.find(({ id }) => id === action.payload.id);
