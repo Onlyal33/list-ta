@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ListControls } from '../../../types';
 
-const initialState: ListControls = { filter: '', sortOrder: 'Default' };
+const initialState: ListControls = { filter: '', sortOrder: 'Default order' };
 
 const listControlsSlice = createSlice({
   name: 'listControls',

@@ -18,5 +18,7 @@ export interface FormikActions {
 
 export interface ListControls {
   filter: string,
-  sortOrder: string,
+  sortOrder: SortOrder,
 }
+
+export type SortOrder = 'Default order' | 'Title: A to Z' | 'Title: Z to A' | 'Description: A to Z' | 'Description: Z to A';

@@ -1,11 +1,15 @@
+import { ChangeEvent } from "react";
+
 interface SelectInterface {
   label: string;
   id: string;
   options: string[];
+  value: string;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 
-function Select({ label, id, options, Icon }: SelectInterface) {
+function Select({ label, id, options, Icon, value, onChange }: SelectInterface) {
   return (
     <div className="relative flex w-full items-center gap-2 rounded-md outline outline-1 outline-gray-500 p-2 pr-8 focus-within:outline-indigo-700 focus-within:outline-2">
       <label htmlFor={id} className="sr-only">
@@ -13,8 +17,9 @@ function Select({ label, id, options, Icon }: SelectInterface) {
       </label>
       <select
         id={id}
-        defaultValue={options[0]}
         aria-label={label}
+        value={value}
+        onChange={onChange}
         className="peer appearance-none w-full h-6 bg-transparent text-sm text-gray-500 focus:outline-none focus:text-indigo-700"
       >
         {options.map((option) => (

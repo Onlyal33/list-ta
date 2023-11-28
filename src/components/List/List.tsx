@@ -3,14 +3,14 @@ import Item from './Item';
 import routes from '../../common/routes';
 import { ItemInterface } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { selectFilteredItems } from '../../redux/features/items/selectors';
+import { selectFilteredAndSortedItems } from '../../redux/features/items/selectors';
 import { setInitialState } from '../../redux/features/items';
 import { shallowEqual } from 'react-redux';
 
 function List() {
   const [httpError, setHttpError] = useState<string | undefined>();
   const dispatch = useAppDispatch();
-  const items = useAppSelector(selectFilteredItems, shallowEqual)
+  const items = useAppSelector(selectFilteredAndSortedItems, shallowEqual)
 
   useEffect(() => {
     fetch(routes.itemsPath())
