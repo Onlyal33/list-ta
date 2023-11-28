@@ -15,3 +15,8 @@ export interface ModalInterface {
 export interface FormikActions {
   setSubmitting: (_: boolean) => void;
 }
+
+export interface ListControls {
+  filter: string,
+  sortOrder: string,
+}

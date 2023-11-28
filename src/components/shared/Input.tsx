@@ -1,11 +1,14 @@
+import { ChangeEvent } from "react";
+
 interface InputInterface {
   label: string,
   id: string,
   placeholder: string,
   Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>,
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ label, placeholder, id, Icon }: InputInterface) {
+function Input({ label, placeholder, id, Icon, onChange }: InputInterface) {
   return (
     <div className="flex w-full items-center gap-2 rounded-md outline outline-1 outline-gray-500 p-2 focus-within:outline-indigo-700 focus-within:outline-2">
       <label htmlFor={id} className="sr-only">
@@ -16,6 +19,7 @@ function Input({ label, placeholder, id, Icon }: InputInterface) {
         id={id}
         placeholder={placeholder}
         aria-label={label}
+        onChange={onChange}
         className="peer w-full bg-transparent text-sm placeholder:text-gray-500 focus:outline-none"
       />
       {Icon && <Icon
