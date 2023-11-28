@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Item from './Item';
 import routes from '../../common/routes';
 import { ItemInterface } from '../../types';
@@ -7,18 +7,34 @@ import { selectItems } from '../../redux/features/items/selectors';
 import { setInitialState } from '../../redux/features/items';
 
 function List() {
+  const [httpError, setHttpError] = useState<string | undefined>();
   const items = useAppSelector(selectItems);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     fetch(routes.itemsPath())
-      .then((res) => res.json())
-      .then((data: ItemInterface[]) => dispatch(setInitialState({items: data})))
-      .catch((err) => console.log('implement error handling here', err));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        throw new Error(res.status.toString());
+      })
+      .then((data: ItemInterface[]) =>
+        dispatch(setInitialState({ items: data })),
+      )
+      .catch((err) => {
+        setHttpError(`Error Code: ${err.message}`);
+      });
   }, [dispatch]);
 
   return (
     <div className="flex flex-col gap-3">
+      {httpError && (
+        <div className="text-sm text-red-500" aria-live="assertive">
+          {httpError}
+        </div>
+      )}
       {items.map((item) => (
         <Item
           key={item.id}
