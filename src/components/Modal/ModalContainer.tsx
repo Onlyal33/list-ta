@@ -19,7 +19,7 @@ function ModalContainer() {
 
   return (
     <ModalPortal>
-      <ModalComponent onClose={hideModal} onSubmit={hideModal}></ModalComponent>
+      <ModalComponent onClose={hideModal}></ModalComponent>
     </ModalPortal>
   );
 }

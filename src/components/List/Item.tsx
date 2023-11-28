@@ -1,6 +1,6 @@
 import ButtonSvg from '../shared/ButtonSvg';
-import { ReactComponent as Delete } from '../../assets/delete.svg';
-import { ReactComponent as Edit } from '../../assets/edit.svg';
+import { ReactComponent as DeleteIcon } from '../../assets/delete.svg';
+import { ReactComponent as EditIcon } from '../../assets/edit.svg';
 import { ItemInterface } from '../../types';
 import useModal from '../../hooks/useModal';
 
@@ -14,8 +14,8 @@ function Item({ id, title, description }: ItemInterface) {
         <div>{description}</div>
       </div>
       <div className="flex flex-col gap-3">
-        <ButtonSvg Svg={Edit} id={id} onClick={() => showModal('edit', { id, title, description })}/>
-        <ButtonSvg Svg={Delete} id={id} onClick={() => showModal('delete', { id, title, description })}/>
+        <ButtonSvg Svg={EditIcon} label='Edit Item' onClick={() => showModal('edit', { id, title, description })}/>
+        <ButtonSvg Svg={DeleteIcon} label='Delete Item' onClick={() => showModal('delete', { id, title, description })}/>
       </div>
     </div>
   );

@@ -1,17 +1,12 @@
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import routes from '../../common/routes';
 import { editItem } from '../../redux/features/items';
-import { FormikActions, NewItemToServer } from '../../types';
+import { FormikActions, ModalProps, NewItemToServer } from '../../types';
 import ItemFormModal from './ItemFormModal';
 import { selectModal } from '../../redux/features/modal/selectors';
 import { useState } from 'react';
 
-interface ModalOptions {
-  onClose: () => void;
-  onSubmit: () => void;
-}
-
-function Edit({ onClose }: ModalOptions) {
+function Edit({ onClose }: { onClose: ModalProps['onClose'] }) {
   const { item } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [httpError, setHttpError] = useState<string | undefined>()

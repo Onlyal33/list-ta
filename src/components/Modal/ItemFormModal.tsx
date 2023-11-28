@@ -1,17 +1,8 @@
 import ButtonSvg from '../shared/ButtonSvg';
 import { ReactComponent as CloseIcon } from '../../assets/close.svg';
 import { useFormik } from 'formik';
-import { FormikActions, NewItemToServer } from '../../types';
+import { ModalProps } from '../../types';
 import { useEffect, useRef } from 'react';
-
-interface ModalOptions {
-  onClose: () => void;
-  onSubmit: (values: NewItemToServer, actions: FormikActions) => void;
-  headerText: string;
-  buttonText: string;
-  initialValues: NewItemToServer;
-  httpError?: string;
-}
 
 function ItemFormModal({
   onClose,
@@ -20,7 +11,7 @@ function ItemFormModal({
   buttonText,
   initialValues,
   httpError,
-}: ModalOptions) {
+}: ModalProps) {
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -51,7 +42,7 @@ function ItemFormModal({
     >
       <div className="flex w-full items-center justify-between border-b border-b-gray-300 pb-4">
         <h2 id="modalTitle" className="text-xl font-bold">{headerText}</h2>
-        <ButtonSvg onClick={onClose} Svg={CloseIcon} aria-label="Close" />
+        <ButtonSvg onClick={onClose} Svg={CloseIcon} label="Close" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="block font-medium text-gray-600" htmlFor="title">

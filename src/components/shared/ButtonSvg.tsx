@@ -1,12 +1,8 @@
-interface ButtonInterface {
-  id?: number;
-  Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  onClick: () => void;
-}
+import { ButtonProps } from "../../types";
 
-function ButtonSvg({ id, Svg, onClick }: ButtonInterface) {
+function ButtonSvg({ Svg, onClick, label }: ButtonProps) {
   return (
-    <button onClick={onClick} type="button" className="min-w-6 group focus:outline-indigo-700 max-h-6">
+    <button onClick={onClick} type="button" aria-label={label} className="min-w-6 group focus:outline-indigo-700 max-h-6">
       <Svg
         width={24}
         height={24}

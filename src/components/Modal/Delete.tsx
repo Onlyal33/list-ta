@@ -5,13 +5,9 @@ import { selectModalItem } from '../../redux/features/modal/selectors';
 import routes from '../../common/routes';
 import { deleteItem } from '../../redux/features/items';
 import { useEffect, useRef, useState } from 'react';
+import { ModalProps } from '../../types';
 
-interface ModalOptions {
-  onClose: () => void;
-  onSubmit: () => void;
-}
-
-function Delete({ onClose }: ModalOptions) {
+function Delete({ onClose }: { onClose: ModalProps['onClose'] }) {
   const [httpError, setHttpError] = useState<string | undefined>();
   const item = useAppSelector(selectModalItem);
   const dispatch = useAppDispatch();
@@ -59,7 +55,7 @@ function Delete({ onClose }: ModalOptions) {
         <h2 id="modalTitle" className="text-xl font-bold">
           Delete Item
         </h2>
-        <ButtonSvg onClick={onClose} Svg={CloseIcon} aria-label="Close" />
+        <ButtonSvg onClick={onClose} Svg={CloseIcon} label="Close" />
       </div>
       <div className="flex flex-col gap-1">
         <p className="block text-lg font-medium text-gray-600">Title</p>

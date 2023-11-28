@@ -1,15 +1,6 @@
-import { ChangeEvent } from "react";
+import { SelectProps } from "../../types";
 
-interface SelectInterface {
-  label: string;
-  id: string;
-  options: string[];
-  value: string;
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-}
-
-function Select({ label, id, options, Icon, value, onChange }: SelectInterface) {
+function Select({ label, id, options, Icon, value, onChange }: SelectProps) {
   return (
     <div className="relative flex w-full items-center gap-2 rounded-md outline outline-1 outline-gray-500 p-2 pr-8 focus-within:outline-indigo-700 focus-within:outline-2">
       <label htmlFor={id} className="sr-only">

@@ -1,16 +1,11 @@
 import { useAppDispatch } from '../../redux/hooks';
 import routes from '../../common/routes';
 import { addItem } from '../../redux/features/items';
-import { NewItemToServer } from '../../types';
+import { ModalProps, NewItemToServer } from '../../types';
 import ItemFormModal from './ItemFormModal';
 import { useState } from 'react';
 
-interface ModalOptions {
-  onClose: () => void;
-  onSubmit: () => void;
-}
-
-function Add({ onClose }: ModalOptions) {
+function Add({ onClose }: { onClose: ModalProps['onClose'] }) {
   const [httpError, setHttpError] = useState<string | undefined>()
 
   const dispatch = useAppDispatch();
